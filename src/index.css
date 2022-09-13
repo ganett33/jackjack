@@ -1,13 +1,331 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;700&display=swap");
+
+:root {
+  --color-black: #222222;
+  --color-grey: #b0b0b0;
+  --color-darkGrey: #717171;
+  --color-logo: #ff385c;
+  --color-green: #7aa300;
+  --color-yellow: #fff6b0;
+  --color-white: #fff8f6;
+
+  --color-shadow: rgba(0, 0, 0, 0.2);
+  --size-avatar: 38px;
+  --border-small: 5px;
+  --border-style: 1px solid transparent;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ############ General ############ */
+* {
+  box-sizing: border-box;
+  font-family: "Baloo Bhai 2", cursive;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--color-logo);
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  color: var(--color-darkGrey);
+}
+
+button {
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.app {
+  width: 100vw;
+  max-width: 500px;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 7px;
+  box-shadow: 0 5px 30px 0 rgb(0 0 0 / 20%), 0 5px 20px 0 rgb(0 0 0 / 19%);
+  border: var(--border-style);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* ############ Header ############ */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px 20px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo-img {
+  width: 40px;
+  height: 25px;
+}
+
+.logo-name {
+  font-size: 1.2rem;
+  margin: 8px;
+  color: var(--color-logo);
+}
+
+.logo-user {
+  font-size: 0.7rem;
+  color: var(--color-blue);
+  padding-top: 5px;
+}
+
+.menu {
+  color: var(--color-grey);
+}
+
+.menu-item {
+  color: var(--color-grey);
+  font-weight: bold;
+}
+
+.menu-item:hover {
+  color: var(--color-black);
+  text-decoration: underline var(--color-grey);
+  text-underline-offset: 30px;
+}
+
+.banner {
+  margin: 8px;
+  padding: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.banner-red {
+  background-color: var(--color-logo);
+}
+
+.banner-green {
+  background-color: var(--color-green);
+}
+
+/* ############ Login form ############ */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: var(--color-black);
+  padding: 16px 32px;
+}
+
+.form-btn {
+  font-size: 1rem;
+  background: var(--color-logo);
+  color: white;
+  font-weight: bold;
+  padding: 5px 8px;
+  border-radius: var(--border-small);
+}
+
+.form-btn-small {
+  font-size: 0.8rem;
+}
+
+.auth-form-btn {
+  margin: 16px;
+}
+
+.auth-form-title {
+  margin: 0;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: var(--color-darkGrey);
+}
+
+.form-input {
+  border: 1px solid var(--color-grey);
+  border-radius: var(--border-small);
+  font-size: 1rem;
+  margin: 4px 0;
+}
+
+.form-input:focus {
+  outline: 1.5px solid var(--color-black);
+}
+
+.form-signup {
+  margin-top: 8px;
+}
+
+/* ############ Tweets ############ */
+.tweets {
+  height: 100%;
+  overflow-y: auto;
+  color: var(--color-black);
+  padding: 16px;
+  list-style: none;
+  margin-top: 0;
+
+  /* Firefox */
+  scrollbar-width: 6px;
+  scrollbar-color: var(--color-black);
+  scrollbar-face-color: var(--color-white);
+}
+
+.tweets::-webkit-scrollbar {
+  /* Safari and Chrome */
+  background-color: var(--color-white);
+  width: 6px;
+}
+
+.tweets::-webkit-scrollbar-thumb {
+  /* Safari and Chrome */
+  background-color: var(--color-black);
+}
+
+.tweets-empty {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-grey);
+  text-align: center;
+}
+
+.tweet {
+  background-color: var(--color-white);
+  box-shadow: 0 4px 8px 0 var(--color-shadow);
+  transition: 0.3s;
+  margin-bottom: 16px;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: var(--border-small);
+  border: var(--border-style);
+}
+
+.tweet:hover {
+  box-shadow: 0 8px 16px 0 var(--color-shadow);
+}
+
+/* ############ Tweet-Container ############ */
+.tweet-container {
+  display: flex;
+  width: 100%;
+}
+
+.avatar-img {
+  width: var(--size-avatar);
+  height: var(--size-avatar);
+  border-radius: 50%;
+}
+
+.avatar-txt {
+  width: var(--size-avatar);
+  height: var(--size-avatar);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: var(--size-avatar);
+}
+.tweet-body {
+  margin: 0px 8px;
+  width: 100%;
+}
+
+.tweet-name {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--color-black);
+}
+
+.tweet-username,
+.tweet-date {
+  font-size: 0.7rem;
+  margin-left: 4px;
+  color: var(--color-darkGrey);
+  font-weight: bold;
+}
+
+.tweet-username {
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.tweet-username:hover {
+  background: var(--color-yellow);
+}
+
+.tweet-date {
+  color: var(--color-logo);
+}
+
+/* ############ TweetForm ############ */
+
+.tweet-form {
+  display: flex;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: white;
+  border-bottom: 1px solid var(--color-grey);
+}
+
+.tweet-input {
+  width: 100%;
+  margin-right: 4px;
+}
+
+.tweet-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--color-black);
+}
+
+.tweet-action-btn {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.tweet-action-btn:hover {
+  color: var(--color-logo);
+  transform: scale(1.2);
+}
+
+.edit-tweet-form-action {
+  float: right;
+  margin-top: 4px;
+}
+
+.form-btn-update,
+.form-btn-cancel {
+  font-size: 0.8rem;
+  padding: 4px;
+  font-weight: bold;
+}
+
+.form-btn-update {
+  color: var(--color-logo);
+}
+
+.form-btn-cancel {
+  margin-left: 8px;
+  color: var(--color-grey);
+}
+
+.form-btn-update:hover,
+.form-btn-cancel:hover {
+  color: white;
+  background-color: var(--color-logo);
+  border-radius: var(--border-small);
 }

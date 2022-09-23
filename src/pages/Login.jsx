@@ -50,7 +50,6 @@ const Login = ({ onSignUp, onLogin }) => {
     <>
       <Banner text={text} isAlert={isAlert} />
       <form className='auth-form' onSubmit={onSubmit}>
-        <h2 className='auth-form-title'> Welcome to jackjack </h2>
         <input
           name='username'
           type='text'

@@ -45,8 +45,8 @@ export function AuthProvider({ authService, authErrorEventBus, children }) {
     [authService]
   );
 
-  const logOut = useCallback(
-    async () => authService.logOut().then(() => setUser(undefined)),
+  const logout = useCallback(
+    async () => authService.logout().then(() => setUser(undefined)),
     [authService]
   );
 
@@ -55,9 +55,9 @@ export function AuthProvider({ authService, authErrorEventBus, children }) {
       user,
       signUp,
       logIn,
-      logOut,
+      logout,
     }),
-    [user, signUp, logIn, logOut]
+    [user, signUp, logIn, logout]
   );
 
   return (

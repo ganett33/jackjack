@@ -13,8 +13,8 @@ import Socket from "./network/socket";
 
 const baseURL = process.env.REACT_APP_BASE_URL;
 const tokenStorage = new TokenStorage();
-const httpClient = new HttpClient(baseURL);
-const authErrorEventBus = new AuthErrorEventBus(); // auto-logout by JWT expires
+const authErrorEventBus = new AuthErrorEventBus();
+const httpClient = new HttpClient(baseURL, authErrorEventBus);
 const authService = new AuthService(httpClient, tokenStorage);
 const socketClient = new Socket(baseURL, () => tokenStorage.getToken());
 const tweetService = new TweetService(httpClient, tokenStorage, socketClient);

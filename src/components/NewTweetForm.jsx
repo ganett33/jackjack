@@ -21,7 +21,7 @@ const NewTweetForm = ({ tweetService, onError }) => {
     <form className='tweet-form' onSubmit={onSubmit}>
       <input
         type='text'
-        placeholder='Type here...'
+        placeholder='Edit your tweet'
         value={tweet}
         required
         autoFocus

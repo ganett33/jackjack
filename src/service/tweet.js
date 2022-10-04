@@ -17,9 +17,10 @@ export default class TweetService {
     return this.http.fetch(`/tweets`, {
       method: "POST",
       headers: this.getHeaders(),
-      body: JSON.stringify({ text, username: "jb", name: "Jongbo" }),
+      body: JSON.stringify({ text, username: "ellie", name: "Ellie" }),
     });
   }
+
   async deleteTweet(tweetId) {
     return this.http.fetch(`/tweets/${tweetId}`, {
       method: "DELETE",
